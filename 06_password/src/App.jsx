@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { useState, useCallback, useEffect, useRef} from "react";
 
@@ -17,6 +18,7 @@ export default function App() {
   }, [password])
 
   const passowordGenerator = useCallback(() => {
+    console.log('hello mom@')
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (numAllowed) {

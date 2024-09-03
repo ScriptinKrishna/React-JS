@@ -1,20 +1,39 @@
-import React,{useState, useContext} from 'react'
-import UserContext from '../context/UserContext'
+import React, { useState, useContext } from "react";
+import UserContext from "../context/UserContext";
 
 function Login() {
-  let [userName, setUserName] = useState('')
-  const [password, setPassword] = useState('')
-  const handleOnClick = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  }
+  const { setUser } = useContext(UserContext);
+
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    setUser(username); // Only set username for simplicity
+  };
+
   return (
-    <div>
-      <h2 className='Text-4xl text-center'>Login</h2>
-      <input type="text" placeholder='username'/>
-      <input type="password" placeholder='passowrd'/>
-      <button onClick={handleOnClick}>Submit</button>
+    <div className="text-center">
+      <h2 className="text-4xl text-center">Login</h2>
+      <input
+        type="text"
+        className="border p-2 text-black"
+        placeholder="username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <br />
+      <input
+        type="password"
+        className="border p-2"
+        placeholder="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <br />
+      <button className="border p-2" onClick={handleOnClick}>Submit</button>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
